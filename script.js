@@ -169,18 +169,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const secretMessages = [
         { 
             text: "Ты нашла первое пасхальное яйцо! 🥚", 
-            x: 5, 
-            y: 5,
+            x: 10, 
+            y: 10,
             effect: () => {
+                // Появление трёх больших пульсирующих сердец
                 for(let i = 0; i < 3; i++) {
-                    setTimeout(() => createFloatingHeart(), i * 200);
+                    setTimeout(() => {
+                        const bigHeart = document.createElement('div');
+                        bigHeart.className = 'big-heart-effect';
+                        bigHeart.textContent = '❤️';
+                        document.body.appendChild(bigHeart);
+                        setTimeout(() => {
+                            if(bigHeart.parentNode) bigHeart.parentNode.removeChild(bigHeart);
+                        }, 1200);
+                    }, i * 250);
                 }
             }
         },
         { 
             text: "Ты самая красивая! 🌹", 
-            x: 95, 
-            y: 5,
+            x: 85, 
+            y: 10,
             effect: () => {
                 const body = document.body;
                 body.style.animation = 'rainbow 2s infinite';
@@ -192,61 +201,73 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             text: "Ты - моя любовь! 💑", 
             x: 50, 
-            y: 50,
+            y: 40,
             effect: () => {
-                const stars = document.createElement('div');
-                stars.className = 'stars-burst';
-                document.body.appendChild(stars);
-                setTimeout(() => {
-                    if(stars.parentNode) {
-                        stars.parentNode.removeChild(stars);
-                    }
-                }, 2000);
+                // Взрыв звёздочек из центра
+                for(let i = 0; i < 16; i++) {
+                    setTimeout(() => {
+                        const star = document.createElement('div');
+                        star.className = 'burst-star';
+                        star.textContent = '⭐';
+                        star.style.transform = `translate(-50%, -50%) rotate(${i*22.5}deg) translateY(-80px)`;
+                        star.style.left = '50%';
+                        star.style.top = '50%';
+                        document.body.appendChild(star);
+                        setTimeout(() => {
+                            if(star.parentNode) star.parentNode.removeChild(star);
+                        }, 1000);
+                    }, i * 30);
+                }
             }
         },
         { 
             text: "Ты - моё солнышко! ☀️", 
-            x: 5, 
-            y: 95,
+            x: 10, 
+            y: 85,
             effect: () => {
+                // Пульсирующее солнце с лучами
                 const sun = document.createElement('div');
-                sun.className = 'mini-sun';
+                sun.className = 'sun-effect';
                 document.body.appendChild(sun);
                 setTimeout(() => {
-                    if(sun.parentNode) {
-                        sun.parentNode.removeChild(sun);
-                    }
-                }, 2000);
+                    if(sun.parentNode) sun.parentNode.removeChild(sun);
+                }, 1200);
             }
         },
         { 
             text: "Ты - моя звёздочка! ⭐", 
-            x: 95, 
-            y: 95,
+            x: 85, 
+            y: 85,
             effect: () => {
-                for(let i = 0; i < 10; i++) {
+                // Множество маленьких звёздочек, которые взлетают вверх
+                for(let i = 0; i < 12; i++) {
                     setTimeout(() => {
-                        const x = Math.random() * window.innerWidth;
-                        const y = Math.random() * window.innerHeight;
-                        createStar(x, y);
-                    }, i * 100);
+                        const star = document.createElement('div');
+                        star.className = 'fly-star';
+                        star.textContent = '⭐';
+                        star.style.left = (10 + Math.random()*80) + 'vw';
+                        star.style.top = '90vh';
+                        document.body.appendChild(star);
+                        setTimeout(() => {
+                            if(star.parentNode) star.parentNode.removeChild(star);
+                        }, 1200);
+                    }, i * 80);
                 }
             }
         },
         { 
             text: "Ты - моя радость! 😊", 
             x: 50, 
-            y: 5,
+            y: 10,
             effect: () => {
+                // Большой смайлик, который подпрыгивает и исчезает
                 const emoji = document.createElement('div');
-                emoji.className = 'floating-emoji';
+                emoji.className = 'jump-emoji';
                 emoji.textContent = '😊';
                 document.body.appendChild(emoji);
                 setTimeout(() => {
-                    if(emoji.parentNode) {
-                        emoji.parentNode.removeChild(emoji);
-                    }
-                }, 2000);
+                    if(emoji.parentNode) emoji.parentNode.removeChild(emoji);
+                }, 1200);
             }
         }
     ];
