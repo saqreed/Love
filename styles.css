@@ -623,6 +623,9 @@ h1 {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     z-index: 1000;
     transform: scale(0.8);
+    max-width: 200px;
+    text-align: center;
+    pointer-events: auto;
 }
 
 .secret-message:hover {
@@ -646,6 +649,7 @@ h1 {
     background: radial-gradient(circle, transparent 30%, rgba(255,255,255,0.8) 70%);
     animation: burst 2s forwards;
     pointer-events: none;
+    z-index: 999;
 }
 
 .mini-sun {
@@ -659,6 +663,7 @@ h1 {
     border-radius: 50%;
     animation: sunPulse 2s forwards;
     pointer-events: none;
+    z-index: 999;
 }
 
 .floating-emoji {
@@ -669,6 +674,7 @@ h1 {
     font-size: 50px;
     animation: floatUp 2s forwards;
     pointer-events: none;
+    z-index: 999;
 }
 
 @keyframes burst {

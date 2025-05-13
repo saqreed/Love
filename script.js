@@ -168,9 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Пасхальные яйца
     const secretMessages = [
         { 
-            text: "Ты нашла первое пасхальное яйцо! 🥚", 
-            x: 10, 
-            y: 10,
+            text: "Ты нашла первое пасхальное яйцо! ��", 
+            x: 5, 
+            y: 5,
             effect: () => {
                 createFloatingHeart();
                 createFloatingHeart();
@@ -179,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             text: "Ты самая красивая! 🌹", 
-            x: 90, 
-            y: 90,
+            x: 95, 
+            y: 5,
             effect: () => {
                 document.body.style.animation = 'rainbow 2s infinite';
                 setTimeout(() => {
@@ -201,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             text: "Ты - моё солнышко! ☀️", 
-            x: 75, 
-            y: 25,
+            x: 5, 
+            y: 95,
             effect: () => {
                 const sun = document.createElement('div');
                 sun.className = 'mini-sun';
@@ -212,8 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             text: "Ты - моя звёздочка! ⭐", 
-            x: 25, 
-            y: 75,
+            x: 95, 
+            y: 95,
             effect: () => {
                 for(let i = 0; i < 10; i++) {
                     setTimeout(() => createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight), i * 100);
@@ -222,8 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             text: "Ты - моя радость! 😊", 
-            x: 85, 
-            y: 15,
+            x: 50, 
+            y: 5,
             effect: () => {
                 const emoji = document.createElement('div');
                 emoji.className = 'floating-emoji';
