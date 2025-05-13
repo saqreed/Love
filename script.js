@@ -168,13 +168,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Пасхальные яйца
     const secretMessages = [
         { 
-            text: "Ты нашла первое пасхальное яйцо! ��", 
+            text: "Ты нашла первое пасхальное яйцо! 🥚", 
             x: 5, 
             y: 5,
             effect: () => {
-                createFloatingHeart();
-                createFloatingHeart();
-                createFloatingHeart();
+                for(let i = 0; i < 3; i++) {
+                    setTimeout(() => createFloatingHeart(), i * 200);
+                }
             }
         },
         { 
@@ -182,9 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
             x: 95, 
             y: 5,
             effect: () => {
-                document.body.style.animation = 'rainbow 2s infinite';
+                const body = document.body;
+                body.style.animation = 'rainbow 2s infinite';
                 setTimeout(() => {
-                    document.body.style.animation = '';
+                    body.style.animation = '';
                 }, 2000);
             }
         },
@@ -196,7 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const stars = document.createElement('div');
                 stars.className = 'stars-burst';
                 document.body.appendChild(stars);
-                setTimeout(() => stars.remove(), 2000);
+                setTimeout(() => {
+                    if(stars.parentNode) {
+                        stars.parentNode.removeChild(stars);
+                    }
+                }, 2000);
             }
         },
         { 
@@ -207,7 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const sun = document.createElement('div');
                 sun.className = 'mini-sun';
                 document.body.appendChild(sun);
-                setTimeout(() => sun.remove(), 2000);
+                setTimeout(() => {
+                    if(sun.parentNode) {
+                        sun.parentNode.removeChild(sun);
+                    }
+                }, 2000);
             }
         },
         { 
@@ -216,7 +225,11 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 95,
             effect: () => {
                 for(let i = 0; i < 10; i++) {
-                    setTimeout(() => createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight), i * 100);
+                    setTimeout(() => {
+                        const x = Math.random() * window.innerWidth;
+                        const y = Math.random() * window.innerHeight;
+                        createStar(x, y);
+                    }, i * 100);
                 }
             }
         },
@@ -229,7 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 emoji.className = 'floating-emoji';
                 emoji.textContent = '😊';
                 document.body.appendChild(emoji);
-                setTimeout(() => emoji.remove(), 2000);
+                setTimeout(() => {
+                    if(emoji.parentNode) {
+                        emoji.parentNode.removeChild(emoji);
+                    }
+                }, 2000);
             }
         }
     ];
@@ -242,7 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
         secret.style.top = msg.y + 'vh';
         
         secret.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
+            console.log('Пасхалка кликнута:', msg.text);
             msg.effect();
             secret.style.transform = 'scale(1.2)';
             secret.style.opacity = '1';

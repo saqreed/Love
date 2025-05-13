@@ -874,4 +874,181 @@ h1 {
 
 .enter-animation {
     animation: enterRoom 1s forwards;
+}
+
+/* Мобильная адаптация */
+@media screen and (max-width: 768px) {
+    .house {
+        width: 140px;
+        height: 120px;
+        bottom: 15%;
+    }
+
+    .house-body {
+        width: 100px;
+        height: 70px;
+        left: 20px;
+    }
+
+    .house-roof {
+        width: 120px;
+        height: 40px;
+        left: 10px;
+        top: 25px;
+    }
+
+    .house-window {
+        width: 25px;
+        height: 25px;
+        left: 40px;
+        top: 75px;
+    }
+
+    .house-door {
+        width: 25px;
+        height: 40px;
+        left: 78px;
+    }
+
+    .house-step {
+        width: 32px;
+        height: 10px;
+        left: 74px;
+    }
+
+    .house-bush, .house-bush2 {
+        width: 30px;
+        height: 20px;
+    }
+
+    .house-bush2 {
+        left: 110px;
+    }
+
+    .ground-hill {
+        width: 90vw;
+        height: 35vw;
+    }
+
+    .ground-path {
+        width: 60px;
+        height: 100px;
+    }
+
+    .ground-flower {
+        transform: scale(0.8);
+    }
+
+    .message h1 {
+        font-size: 1.8em;
+    }
+
+    .typing-text {
+        font-size: 1em;
+    }
+
+    .heart-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .secret-message {
+        font-size: 14px;
+        padding: 8px 12px;
+        max-width: 150px;
+    }
+
+    .theme-btn, .music-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .room-fireplace {
+        width: 150px;
+        height: 120px;
+    }
+
+    .room-fire {
+        width: 80px;
+        height: 60px;
+    }
+
+    .room-carpet {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .house {
+        width: 120px;
+        height: 100px;
+        bottom: 20%;
+    }
+
+    .house-body {
+        width: 80px;
+        height: 60px;
+        left: 20px;
+    }
+
+    .house-roof {
+        width: 100px;
+        height: 35px;
+        left: 10px;
+        top: 20px;
+    }
+
+    .house-window {
+        width: 20px;
+        height: 20px;
+        left: 35px;
+        top: 65px;
+    }
+
+    .house-door {
+        width: 20px;
+        height: 35px;
+        left: 68px;
+    }
+
+    .house-step {
+        width: 28px;
+        height: 8px;
+        left: 64px;
+    }
+
+    .house-bush, .house-bush2 {
+        width: 25px;
+        height: 18px;
+    }
+
+    .house-bush2 {
+        left: 95px;
+    }
+
+    .message h1 {
+        font-size: 1.5em;
+    }
+
+    .typing-text {
+        font-size: 0.9em;
+    }
+
+    .heart-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .secret-message {
+        font-size: 12px;
+        padding: 6px 10px;
+        max-width: 120px;
+    }
+
+    .theme-btn, .music-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
 } 
