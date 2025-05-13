@@ -167,9 +167,71 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Пасхальные яйца
     const secretMessages = [
-        { text: "Ты нашла первое пасхальное яйцо! 🥚", x: 10, y: 10 },
-        { text: "Ты самая красивая! 🌹", x: 90, y: 90 },
-        { text: "Ты - моя любовь! 💑", x: 50, y: 50 }
+        { 
+            text: "Ты нашла первое пасхальное яйцо! 🥚", 
+            x: 10, 
+            y: 10,
+            effect: () => {
+                createFloatingHeart();
+                createFloatingHeart();
+                createFloatingHeart();
+            }
+        },
+        { 
+            text: "Ты самая красивая! 🌹", 
+            x: 90, 
+            y: 90,
+            effect: () => {
+                document.body.style.animation = 'rainbow 2s infinite';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 2000);
+            }
+        },
+        { 
+            text: "Ты - моя любовь! 💑", 
+            x: 50, 
+            y: 50,
+            effect: () => {
+                const stars = document.createElement('div');
+                stars.className = 'stars-burst';
+                document.body.appendChild(stars);
+                setTimeout(() => stars.remove(), 2000);
+            }
+        },
+        { 
+            text: "Ты - моё солнышко! ☀️", 
+            x: 75, 
+            y: 25,
+            effect: () => {
+                const sun = document.createElement('div');
+                sun.className = 'mini-sun';
+                document.body.appendChild(sun);
+                setTimeout(() => sun.remove(), 2000);
+            }
+        },
+        { 
+            text: "Ты - моя звёздочка! ⭐", 
+            x: 25, 
+            y: 75,
+            effect: () => {
+                for(let i = 0; i < 10; i++) {
+                    setTimeout(() => createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight), i * 100);
+                }
+            }
+        },
+        { 
+            text: "Ты - моя радость! 😊", 
+            x: 85, 
+            y: 15,
+            effect: () => {
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = '😊';
+                document.body.appendChild(emoji);
+                setTimeout(() => emoji.remove(), 2000);
+            }
+        }
     ];
     
     secretMessages.forEach((msg, index) => {
@@ -178,6 +240,18 @@ document.addEventListener('DOMContentLoaded', () => {
         secret.textContent = msg.text;
         secret.style.left = msg.x + 'vw';
         secret.style.top = msg.y + 'vh';
+        
+        secret.addEventListener('click', (e) => {
+            e.stopPropagation();
+            msg.effect();
+            secret.style.transform = 'scale(1.2)';
+            secret.style.opacity = '1';
+            setTimeout(() => {
+                secret.style.transform = 'scale(1)';
+                secret.style.opacity = '0';
+            }, 1000);
+        });
+        
         document.body.appendChild(secret);
     });
 
