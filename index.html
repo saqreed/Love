@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердце из кода ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="day-theme">
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-btn">🌙</button>
+    </div>
+    
+    <div class="background">
+        <div class="sky"></div>
+        <div class="clouds">
+            <div class="cloud" style="top: 20%; animation-duration: 60s;"></div>
+            <div class="cloud" style="top: 40%; animation-duration: 80s;"></div>
+            <div class="cloud" style="top: 60%; animation-duration: 70s;"></div>
+        </div>
+        <div class="sun"></div>
+        <div class="moon"></div>
+        <div class="stars"></div>
+        <div class="ground">
+            <div class="ground-hill"></div>
+            <div class="ground-path"></div>
+            <div class="ground-flower" style="left: 22%; bottom: 30px;">
+                <div class="flower-center"></div>
+                <div class="flower-petal" style="transform: rotate(0deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(72deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(144deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(216deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(288deg) translate(10px,0);"></div>
+            </div>
+            <div class="ground-flower" style="left: 35%; bottom: 50px;">
+                <div class="flower-center"></div>
+                <div class="flower-petal" style="transform: rotate(0deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(72deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(144deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(216deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(288deg) translate(10px,0);"></div>
+            </div>
+            <div class="ground-flower" style="left: 60%; bottom: 40px;">
+                <div class="flower-center"></div>
+                <div class="flower-petal" style="transform: rotate(0deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(72deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(144deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(216deg) translate(10px,0);"></div>
+                <div class="flower-petal" style="transform: rotate(288deg) translate(10px,0);"></div>
+            </div>
+        </div>
+        <div class="house">
+            <div class="house-body"></div>
+            <div class="house-roof"></div>
+            <div class="house-chimney"></div>
+            <div class="house-window"></div>
+            <div class="house-door" style="cursor: pointer;"></div>
+            <div class="house-step"></div>
+            <div class="house-bush"></div>
+            <div class="house-bush2"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="heart-container">
+            <svg class="heart" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,88.9C25.2,73.3,0,50,0,30.6C0,17.2,10.2,7,23.6,7c8.3,0,15.6,4.2,20.2,10.6C48.4,11.2,55.7,7,64,7
+                C77.4,7,87.6,17.2,87.6,30.6c0,19.4-25.2,42.7-50,58.3C35.7,90.7,50,88.9,50,88.9z"/>
+            </svg>
+        </div>
+        <div class="message">
+            <h1>Моё сердце принадлежит тебе</h1>
+            <p class="typing-text"></p>
+        </div>
+        <div class="floating-hearts"></div>
+        <div class="controls">
+            <button id="musicToggle" class="music-btn">🎵</button>
+        </div>
+    </div>
+    <div class="room" style="display: none;">
+        <div class="room-wall"></div>
+        <div class="room-floor"></div>
+        <div class="room-carpet"></div>
+        <div class="room-fireplace">
+            <div class="room-fire"></div>
+        </div>
+        <button class="room-exit" style="cursor: pointer;">✕</button>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html> 
